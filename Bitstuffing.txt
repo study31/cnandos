@@ -1,0 +1,41 @@
+#include<stdio.h>
+int main()
+{
+	while(1)
+	{
+		char bin[100],new_bin[100];
+		printf("Enter data from Network layer in Binary form : ");
+		scanf("%s",&bin);
+		int z=0,i,j=0,opt;
+		for(i=0;bin[i]!='\0';i++)
+		{
+			if(bin[i]=='1')
+			{
+				z++;
+				if(z==5)
+				{
+					new_bin[j++]=bin[i];
+					new_bin[j++]='0';
+					z=0;
+				}
+				else
+					new_bin[j++]=bin[i];
+			}	
+			else
+			{
+				z=0;
+				new_bin[j++]=bin[i];
+			}
+		}
+		new_bin[j]='\0';
+		printf("\nSender\'s Physical Layer data : ");
+		printf("0111110%s0111110",new_bin);
+		printf("\nReceiver\'s Network Layer data : ");
+		printf("%s",new_bin);
+		printf("\n\nDo you want to continue\n1:yes\t0:no\n");
+		scanf("%d",&opt);
+		if(opt==0)
+		break;
+	}
+	return 0;
+}

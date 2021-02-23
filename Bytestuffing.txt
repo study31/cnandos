@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main()
+{
+	printf("FLAG_BYTE : $\tESC_BYTE : #\n");
+	while(1)
+	{
+	char new_data[15],data[15];
+	int opt,j=0,i;
+	printf("\nEnter the data from Network Layer : ");
+	scanf("%s",data);
+	for(i=0;data[i]!='\0';i++)
+	{
+		if(data[i]=='#')
+		{
+			new_data[j++]='#';
+			new_data[j++]=data[i];
+		}
+		else
+			new_data[j++]=data[i];
+	}
+	new_data[j]='\0';
+	printf("\nData to the physical layer : $%s#",new_data);
+	printf("\n\nDo you want to continue\n1:yes\t0:no\n");
+	scanf("%d",&opt);
+	if(opt==0)
+	break;
+	}
+	return 0;
+}
